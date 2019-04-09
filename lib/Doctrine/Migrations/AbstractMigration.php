@@ -43,6 +43,7 @@ abstract class AbstractMigration
         $this->connection   = $config->getConnection();
         $this->sm           = $this->connection->getSchemaManager();
         $this->platform     = $this->connection->getDatabasePlatform();
+        $this->connection->getDatabasePlatform()->registerDoctrineTypeMapping('json', 'text');
         $this->outputWriter = $config->getOutputWriter();
     }
 
